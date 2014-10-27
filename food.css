@@ -1,0 +1,113 @@
+body {
+	margin: 0;
+}
+
+a {
+	display: block;
+	width: 150px;
+	margin: 0 20px;
+	font-size: 1em;
+	background: orange;
+	text-align: center;
+	border-radius: 3px;
+	padding: 10px;
+	border: 1px solid rgba(0,0,0,0.3);
+	color: #fff;
+	transition: 200ms all ease;
+	box-shadow: inset 0 1px 0 rgba(255,255,255,0.4);
+	text-decoration: none;
+	font-family: sans-serif;
+}
+
+li:first-child a {
+	background: red
+}
+
+li:last-child a {
+	background: #1bc70e;
+}
+
+li:first-child a:hover {
+	background: red;
+	cursor: pointer;
+}
+
+li:last-child a:hover {
+	background: #17a20c;
+}
+
+h1, a { 
+ z-index: 2;
+ position: relative;
+}
+
+/*.background {
+	background: url(http://lorempixel.com/g/100/70/food) repeat; 
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	z-index: 0;
+	opacity:0.3;
+}*/
+
+ul {
+	list-style: none;
+	text-align: center;
+}
+
+li {
+	display: inline-block;
+}
+
+.items {
+	margin: 0;
+	padding: 0;
+	font-size: 0;
+}
+
+.items li:first-child {
+	background: #A3A948;
+}
+
+.items li:nth-child(2) {
+	background: #EDB92E;
+}
+
+.items li:nth-child(3) {
+	background: #F85931;
+}
+
+.items li:nth-child(4) {
+	background: #CE1836;
+}
+
+.items li:last-child {
+	background: #009989;
+}
+
+.items li {
+	width: 20%;
+	margin: 0;
+	
+}
+
+.items li a {
+	width: 100%;
+	margin: 0;
+	border: none;
+	border-radius: 0;
+	background: none;
+	box-shadow: none;
+	padding: 0;
+	display: block;
+	height: 100%;
+	box-sizing: border-box;
+	padding: 20px;
+	font-family: 'Mako', sans-serif;
+	text-transform: uppercase;
+	font-size: 16px;
+}
