@@ -1,4 +1,4 @@
-$('.items a').on('click', function(e) {
+$('.items a, .hate').on('click', function(e) {
 	e.preventDefault(); 
 
 	// make sure they are all hidden
