@@ -17,7 +17,7 @@
 	$rec_board = '528a6b95a7b6b5f31f000946';
 
 	$recipe_json = file_get_contents('https://api.trello.com/1/boards/'.$list.'/lists?cards=open&card_fields=name&fields=name&key=8969d404faae9a31368c7384c1f82e97');
-	var_dump($recipe_json);
+	//var_dump($recipe_json);
 	
 
 	$boards = json_decode($recipe_json);
