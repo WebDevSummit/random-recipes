@@ -6,7 +6,7 @@
 	 * config stuff
 	 * @misc vars
 	 */
-
+	$api_key = '8969d404faae9a31368c7384c1f82e97';
 	$list = '51a2ce627358a5dd30001a02';
 	$exclude = ['Meh List', 'Baked Goods']; 
 	
@@ -15,7 +15,7 @@
 	 */
 	include ('TrelloBoard.php');
 
-	$board = new TrelloBoard($list, $exclude);
+	$board = new WebDevSummit\TrelloBoard($api_key, $list, $exclude);
 	$lists = $board->getLists();
 	$cards = $board->getCards();
 

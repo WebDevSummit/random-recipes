@@ -1,6 +1,9 @@
 <?php
 
+namespace WebDevSummit;
+
 class TrelloBoard {
+	protected $api_key;
 
 	protected $lists;
 
@@ -19,11 +22,22 @@ class TrelloBoard {
 	/**
 	 * set up TrelloBoard
 	 */
-	public function __construct($board, $excluded)
+	public function __construct($api_key, $board, $excluded)
 	{
-		$this->cards = json_decode(file_get_contents('https://api.trello.com/1/boards/' . $board . '/cards?fields=name,idList,url&key=8969d404faae9a31368c7384c1f82e97'));
-		$this->lists = json_decode(file_get_contents('https://api.trello.com/1/boards/' . $board . '/lists?cards=open&card_fields=name&fields=name&key=8969d404faae9a31368c7384c1f82e97'));
+		$this->api_key = $api_key;
+		$this->cards = $this->api_call($board, 'cards', 'fields=name,idList,url');
+		$this->lists = $this->api_call($board, 'lists', 'cards=open&card_fields=name&fields=name');
 		$this->excluded = $this->setToArray($excluded);
+	}
+
+	public function api_call($board, $resource, $filter = null)
+	{
+		$base_url = 'https://api.trello.com/1/boards/';
+		$url = $base_url . $board . '/' . $resource . '?' . $filter;
+
+		$key =  ((!$filter) ? 'key=' : '&key=') .  $this->api_key;
+		
+		return json_decode( file_get_contents($url . $key) );		
 	}
 
 	/**
@@ -78,9 +92,3 @@ class TrelloBoard {
 		return $content;
 	}
 }
-
-
-// $trelloBoard = new TrelloBoard('51a2ce627358a5dd30001a02', ['Meh List', 'Baked Goods']);
-
-// var_dump($trelloBoard->getBoard());
-
