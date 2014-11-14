@@ -1,0 +1,5 @@
+<ul class="cards">
+	{% for card in cards %}
+		<li data-list="{{ card.idList }}" data-url="{{ card.url }}">{{ card.name }}</li>
+	{% endfor %}
+</ul>

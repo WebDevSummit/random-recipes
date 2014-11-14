@@ -1,5 +1,4 @@
 <?php
-
 namespace WebDevSummit;
 
 class TrelloBoard {
@@ -66,6 +65,10 @@ class TrelloBoard {
 		}
 
 		return $list;
+	}
+	public function getExcluded()
+	{
+		return $this->excluded;
 	}
 
 	public function renderListNavigation()
