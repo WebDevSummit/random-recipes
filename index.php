@@ -1,15 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>WHAT TO EAT?</title>
-	<link rel="stylesheet" href="food.css">
-	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-	<link href='http://fonts.googleapis.com/css?family=Mako' rel='stylesheet' type='text/css'>
-</head>
-<body>
-	<div class="background"></div>
-	
+<?php include('header.php'); ?>
 
 <?php 
 	// how I grabbed the list
@@ -28,6 +17,7 @@
 	$rec_board = '528a6b95a7b6b5f31f000946';
 
 	$recipe_json = file_get_contents('https://api.trello.com/1/boards/'.$list.'/lists?cards=open&card_fields=name&fields=name&key=8969d404faae9a31368c7384c1f82e97');
+	var_dump($recipe_json);
 	
 
 	$boards = json_decode($recipe_json);
@@ -98,25 +88,4 @@
 	<li><a class="like" href="">I Like Dis</a></li>
 </ul>
 
-<script>
-	$('.items a, .hate').on('click', function(e) {
-		$('.cards li').removeClass('show');
-		e.preventDefault(); 
-		var id = $(this).data('board');
-		//console.log(id);
-		var count = $('.cards li[data-list="'+id+'"]').length;
-		//console.log(count);
-		var numRand = Math.floor(Math.random() * (count + 1));
-		//console.log(numRand);
-		var card = $('.cards li[data-list="'+id+'"]').eq(numRand);
-		card.addClass('show');
-		var url = card.data('url');
-		//console.log(url);
-		$('a.like').attr('href', url);
-		$('a.hate').data('board', id);
-	});
-</script>
-
-
-</body>
-</html>
+<?php include('footer.php'); ?>
