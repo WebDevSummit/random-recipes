@@ -7,15 +7,13 @@ $('.items a, .hate').on('click', function(e) {
 	// get the board data attribute of the clicked item
 	var board = $(this).data('board');
 
-	// if board exists then find the cards and get a random number
-	if(board) {
-		var cards = $('.cards li[data-list="'+board+'"]');
+	// find the cards that match the board
+	var cards = $('.cards li[data-list="'+board+'"]');
 
-		// get a random number
-		// all the cards in the specific board + 1
-		// round the number down
-		var numRand = Math.floor(Math.random() * (cards.length + 1));
-	}
+	// get a random number
+	// all the cards in the specific board + 1
+	// round the number down
+	var numRand = Math.floor(Math.random() * (cards.length + 1));
 	
 	// get one of the cards in this list that is equal to 
 	// numRand - 1 is because of the eq starting at 0
