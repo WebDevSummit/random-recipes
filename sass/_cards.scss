@@ -1,0 +1,10 @@
+// The cards themselves
+
+.cards {
+	li {
+		display: none;
+		&.show {
+			display: block;
+		}
+	}
+}
