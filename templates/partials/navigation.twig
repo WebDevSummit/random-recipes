@@ -1,0 +1,7 @@
+<ul class="items" style="text-align: left;">
+	{% for list in lists %}
+		{% if list.name not in excluded %}
+		<li><a href="#" data-board="{{ list.id }}">{{ list.name }}</a></li> 
+		{% endif %}
+	{% endfor %}
+</ul>

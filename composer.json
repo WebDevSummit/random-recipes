@@ -1,0 +1,21 @@
+{
+    "name": "webdevsummit/random-recipes",
+    "require": {
+        "twig/twig": "~1.16"
+    },
+    "authors": [
+        {
+            "name": "John Hartley",
+            "email": "johnbhartley@gmail.com"
+        },
+        {
+            "name": "Eric Katz",
+            "email": "admin@ericnkatz.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "WebDevSummit\\": "WebDevSummit/"
+        }
+    }
+}

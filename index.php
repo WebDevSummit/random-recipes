@@ -1,6 +1,9 @@
-<?php include('header.php'); ?>
-
 <?php 
+
+require 'vendor/autoload.php';
+
+$loader = new Twig_Loader_Filesystem('templates');
+$twig = new Twig_Environment($loader);
 
 	/**
 	 * config stuff
@@ -13,21 +16,13 @@
 	/**
 	 * include
 	 */
-	include ('TrelloBoard.php');
 
 	$board = new WebDevSummit\TrelloBoard($api_key, $list, $exclude);
 	$lists = $board->getLists();
 	$cards = $board->getCards();
+	$excluded = $board->getExcluded();
 
-	echo $board->renderListNavigation();
-	echo $board->renderCards();
+echo $twig->render('index.twig', ['board' => $board, 'lists' => $lists, 'cards' => $cards, 'excluded' => $excluded]);
+
 
 ?>
-
-<ul>
-	<li><a data-url="" class="hate" href="">I Hate Dis</a></li>
-	<li><a class="like" href="">I Like Dis</a></li>
-</ul>
-
-
-<?php include('footer.php'); ?>
