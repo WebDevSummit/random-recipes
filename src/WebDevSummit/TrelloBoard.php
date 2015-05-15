@@ -53,6 +53,11 @@ class TrelloBoard {
 		return $this->lists;
 	}
 
+	public function getExcluded()
+	{
+		return $this->excluded;
+	}
+	
 	/**
 	 * checks for array, if string forces array
 	 * @param array $list
@@ -65,15 +70,6 @@ class TrelloBoard {
 		}
 
 		return $list;
-	}
-
-	/**
-	 * checks for array, if string forces array
-	 * @param array $list
-	 */
-	public function getExcluded()
-	{
-		return $this->excluded;
 	}
 
 }
