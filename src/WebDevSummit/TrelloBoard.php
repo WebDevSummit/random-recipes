@@ -66,32 +66,14 @@ class TrelloBoard {
 
 		return $list;
 	}
+
+	/**
+	 * checks for array, if string forces array
+	 * @param array $list
+	 */
 	public function getExcluded()
 	{
 		return $this->excluded;
 	}
 
-	public function renderListNavigation()
-	{
-		$content = '<ul class="items" style="text-align: left;">';
-		foreach($this->lists as $list) {
-			if(! in_array($list->name, $this->excluded ) ) {
-				$content .= '<li><a href="#" data-board="'.$list->id.'">'.$list->name.'</a></li>'; 
-			}
-		}
-		$content .= '</ul>';
-
-		return $content;
-	}
-
-	public function renderCards()
-	{
-		$content = '<ul class="cards">';
-		foreach($this->cards as $card) {
-			$content .= '<li data-list="'.$card->idList.'" data-url="'.$card->url.'">'.$card->name.'</li>';
-		}
-		$content .= '</ul>';
-
-		return $content;
-	}
 }

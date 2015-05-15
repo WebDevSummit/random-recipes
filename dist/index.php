@@ -1,20 +1,13 @@
 <?php 
 
-require 'vendor/autoload.php';
+require '../vendor/autoload.php';
+require 'config.php';
 
 
-
-$loader = new Twig_Loader_Filesystem('templates');
+$loader = new Twig_Loader_Filesystem('../src/views');
 $twig = new Twig_Environment($loader);
 
-$config = [
-	'api_key' => '8969d404faae9a31368c7384c1f82e97',
-	'list' => '51a2ce627358a5dd30001a02',
-	'exclude' => [
-		'Meh List', 
-		'Baked Goods'
-	]
-];
+
 
 $board = new WebDevSummit\TrelloBoard($config['api_key'], $config['list'], $config['exclude']);
 $lists = $board->getLists();
